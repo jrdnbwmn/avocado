@@ -38,15 +38,34 @@
 // `show-on-mobile` displays the element only on mobile devices
 // `mobile-block` makes the element go display block on mobile devices
 .show-on-mobile { display: none !important; }
-@media screen and (max-width: $breakpoint--sm) {
+@media screen and (max-width: $breakpoint--md) {
     .show-on-mobile,
     .block-on-mobile {
         display: block !important;
     }
 
-    .hide-on-mobile {
-        display: none !important;
-    }
+    .hide-on-mobile { display: none !important; }
+
+    .align--center-on-mobile { text-align: center !important; }
+}
+
+@media screen and (max-width: $breakpoint--lg) and (min-width: $breakpoint--md) {
+    .show-md-to-lg { display: block; }
+
+    .hide-md-to-lg { display: none; }
+}​
+
+.ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+@media screen and (max-width: $breakpoint--md) {
+    .show-md-to-lg { display: none; }
+}
+
+@media screen and (min-width: $breakpoint--lg) {
+    .show-md-to-lg { display: none; }
 }
 
 

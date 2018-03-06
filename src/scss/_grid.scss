@@ -8,7 +8,7 @@ $total-number-columns: 24;
 $column-padding: $baseline*1;
 
 // Set the breakpoint at which columns will go to full width.
-$grid-breakpoint: $breakpoint--sm;
+$grid-breakpoint: $breakpoint--md;
 
 
 // Base Classes
@@ -23,6 +23,7 @@ $grid-breakpoint: $breakpoint--sm;
     // For gutters
     margin: 0 (-$column-padding);
 
+    // Mobile
     @media screen and (max-width: $grid-breakpoint) {
         margin: 0 auto;
     }
@@ -35,7 +36,13 @@ $grid-breakpoint: $breakpoint--sm;
     // Gutters
     padding: 0 $column-padding;
 
-    // Breakpoint
+    // Tablet
+    @media screen and (max-width: $breakpoint--lg) {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+    // Mobile
     @media screen and (max-width: $grid-breakpoint) {
         flex-grow: 1;
         flex-basis: 100%;
@@ -192,3 +199,33 @@ $grid-breakpoint: $breakpoint--sm;
 .offset-two-fifths            { @extend %m-two-fifths; }
 .offset-three-fifths          { @extend %m-three-fifths; }
 .offset-four-fifths           { @extend %m-four-fifths; }
+
+
+// Responsive styles
+// -------------------------------------------------------------------
+// Mobile
+@media screen and (max-width: $breakpoint--md) {
+    .span-half-mobile {
+        flex: 1 0 0%;
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+    .mobile-col--left { padding-right: $column-padding; }
+
+    .mobile-col--right { padding-left: $column-padding; }
+}
+
+// Tablet
+@media screen and (max-width: $breakpoint--lg) {
+    .offset-half,
+    .offset-one-fourth {
+        margin-left: 0;
+    }
+
+    .mobile-col--full {
+        flex: 1 0 0%;
+        flex-basis: 100%;
+        max-width: 100%;
+    }
+}

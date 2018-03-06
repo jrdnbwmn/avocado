@@ -1,20 +1,8 @@
-// Heights
+// Aspect Ratio
 // -------------------------------------------------------------------
-.height-1 {
-    height: 300px;
+.square { @include aspect-ratio(1, 1); }
 
-    @media screen and (min-width: $breakpoint--md) {
-        height: 450px;
-    }
-
-    @media screen and (min-width: $breakpoint--lg) {
-        height: 593px;
-    }
-}
-
-.height-2 {
-    height: 290px;
-}
+.rectangle { @include aspect-ratio(33, 16); }
 
 
 // Other
@@ -25,10 +13,4 @@
     justify-content: center;
 }
 
-.border--green {
-    border: 5px solid $green;
-}
-
-.border--tan {
-    border: 5px solid $tan;
-}
+.border--tan { border: 5px solid $tan; }

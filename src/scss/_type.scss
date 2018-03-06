@@ -10,7 +10,7 @@ h6, .h6, small, .small  { font-size: $h6; }
 
 // Finer control over type scale after certain breakpoint (off by default)
 @if ($responsive-type) {
-    @media screen and (min-width: $breakpoint--sm) {
+    @media screen and (min-width: $breakpoint--lg) {
         h1, .h1                 { font-size: $h1--desktop; }
         h2, .h2                 { font-size: $h2--desktop; }
         h3, .h3                 { font-size: $h3--desktop; }
@@ -72,7 +72,7 @@ hr {
 // Blockquote
 .blockquote {
     border-left: 4px solid $border-color;
-    font-family: $sans-serif;
+    font-family: $heading;
     font-size: $font-size--lg;
     font-style: italic;
     max-width: 100%; // Prevents it from breaking out of container

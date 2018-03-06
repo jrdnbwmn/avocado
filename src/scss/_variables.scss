@@ -31,29 +31,28 @@ $baseline:                .4rem !default;
 // Typography
 // -------------------------------------------------------------------
 // Font families
-$sans-serif:              "Roboto Condensed", Avenir, "Avenir Next", Trebuchet, Verdana,
-                          sans-serif !default;
-$serif:                   "Open Sans", Georgia, Times, serif !default;
-$monospace:               Monaco, Menlo, Consolas,
-                          monospace !default;
+$heading:                 "Roboto Condensed", Avenir, "Avenir Next",
+                          Trebuchet, Verdana, sans-serif !default;
+$sans-serif:              "Open Sans", Georgia, Times, serif !default;
+$monospace:               Monaco, Menlo, Consolas, monospace !default;
 
-$font-family--base:       $serif !default;
-$font-family--heading:    $sans-serif !default;
-$font-family--reading:    $serif !default;
-$font-family--ui:         $serif !default;
+$font-family--base:       $sans-serif !default;
+$font-family--heading:    $heading !default;
+$font-family--reading:    $sans-serif !default;
+$font-family--ui:         $sans-serif !default;
 $font-family--code:       $monospace !default;
 
 // Type scale
 // Good tool: http://type-scale.com/
-$h1:                      3.375rem !default;
-$h2:                      2.25rem !default;
-$h3:                      1.5rem !default;
+$h1:                      2.5rem !default;
+$h2:                      1.9rem !default;
+$h3:                      1.4rem !default;
 $h4:                      1rem !default;
 $h5:                      .677rem !default;
 $h6:                      .677rem !default;
 
 // Finer control over type scale after certain breakpoint (off by default)
-$responsive-type:         false !default;
+$responsive-type:         true !default;
 $h1--desktop:             3.375rem !default;
 $h2--desktop:             2.25rem !default;
 $h3--desktop:             1.5rem !default;
@@ -65,7 +64,7 @@ $h6--desktop:             .677rem !default;
 $text-color:              $dark-gray !default;
 
 // Text sizes
-$font-size--mobile:       16px !default;
+$font-size--mobile:       14px !default;
 $font-size--desktop:      17px !default;
 $font-size--lg:           $h3 !default;
 $font-size--sm:           $h5 !default;
@@ -83,9 +82,10 @@ $line-height--heading:    1 !default;
 // -------------------------------------------------------------------
 // Breakpoints
 // Mobile Safari has problems with rems being used in media queries
-$breakpoint--sm:          40em !default;
-$breakpoint--md:          50em !default;
-$breakpoint--lg:          60em !default;
+$breakpoint--sm:          600px !default;
+$breakpoint--md:          680px !default;
+$breakpoint--lg:          950px !default;
+$breakpoint--hg:          1050px !default;
 
 // Max container width
 $max-container-width:     1200px !default;
@@ -99,7 +99,7 @@ $space-3:                 $baseline*8 !default;
 $space-4:                 $baseline*11 !default;
 
 // Specific margins
-$p-mb:                    $space-2 !default;
+$p-mb:                    $space-1 !default;
 $heading-mb:              $p-mb !default;
 
 
@@ -133,3 +133,23 @@ $border-width:            1px !default;
 // Animations
 // -------------------------------------------------------------------
 $fade:                    .2s ease-out !default;
+
+
+// Asepct Ratio
+// -------------------------------------------------------------------
+@mixin aspect-ratio($width, $height) {
+    position: relative;
+    &:before {
+        display: block;
+        content: "";
+        width: 100%;
+        padding-top: ($height / $width) * 100%;
+    }
+    > .aspect-ratio__content {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
