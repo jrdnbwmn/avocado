@@ -35,21 +35,6 @@ $grid-breakpoint: $breakpoint--md;
 
     // Gutters
     padding: 0 $column-padding;
-
-    // Tablet
-    @media screen and (max-width: $breakpoint--lg) {
-        flex-basis: 50%;
-        max-width: 50%;
-    }
-
-    // Mobile
-    @media screen and (max-width: $grid-breakpoint) {
-        flex-grow: 1;
-        flex-basis: 100%;
-        max-width: 100%;
-        padding: 0;
-        margin-left: 0;
-    }
 }
 
 
@@ -203,6 +188,23 @@ $grid-breakpoint: $breakpoint--md;
 
 // Responsive styles
 // -------------------------------------------------------------------
+.grid-column {
+    // Tablet
+    @media screen and (max-width: $breakpoint--lg) {
+        flex-basis: 50%;
+        max-width: 50%;
+    }
+
+    // Mobile
+    @media screen and (max-width: $grid-breakpoint) {
+        flex-grow: 1;
+        flex-basis: 100%;
+        max-width: 100%;
+        padding: 0;
+        margin-left: 0;
+    }
+}
+
 // Mobile
 @media screen and (max-width: $breakpoint--md) {
     .span-half-mobile {
